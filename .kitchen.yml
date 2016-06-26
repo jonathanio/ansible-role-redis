@@ -1,38 +1,19 @@
 ---
 platforms:
-  - name: ubuntu-14.04
+  - name: debian-7
     transport:
-      username: ubuntu
+      username: admin
+    # Only 1.7.2 is installed by default. Use source method
+    # to pull down Ansible 2.0
+    # provisioner:
+    #   require_ansible_source: true
+    #   ansible_source_rev: stable-2.0
     driver:
       tags:
-        Name: anisble-test-kitchen-role-redis-ubuntu-1404
+        Name: ansible-test-kitchen-role-redis-debian-7
         CreatedBy: test-kitchen
         TestKitchenRole: redis
-        TestKitchenPlatform: ubuntu-14.04
-  - name: ubuntu-16.04
-    transport:
-      username: ubuntu
-    driver:
-      tags:
-        Name: anisble-test-kitchen-role-redis-ubuntu-1604
-        CreatedBy: test-kitchen
-        TestKitchenRole: redis
-        TestKitchenPlatform: ubuntu-16.04
-  - name: centos-6
-    transport:
-      username: centos
-    # Ruby 2.0 is installed in custom location. Override
-    # these calls to ensure that serverspec can be installed
-    # and run on the machine (otherwise it won't be found)
-    verifier:
-      bundler_path: /opt/rh/ruby200/root/usr/local/bin
-      rspec_path: /opt/rh/ruby200/root/usr/local/bin
-    driver:
-      tags:
-        Name: anisble-test-kitchen-role-redis-centos-6
-        CreatedBy: test-kitchen
-        TestKitchenRole: redis
-        TestKitchenPlatform: centos-6
+        TestKitchenPlatform: debian-7
   - name: centos-7
     transport:
       username: centos
@@ -44,7 +25,7 @@ platforms:
       rspec_path: /opt/rh/ruby200/root/usr/local/bin
     driver:
       tags:
-        Name: anisble-test-kitchen-role-redis-centos-7
+        Name: ansible-test-kitchen-role-redis-centos-7
         CreatedBy: test-kitchen
         TestKitchenRole: redis
         TestKitchenPlatform: centos-7
@@ -62,10 +43,43 @@ platforms:
 #     ansible_source_rev: stable-2.0
 #   driver:
 #     tags:
-#       Name: anisble-test-kitchen-role-redis-debian-8
+#       Name: ansible-test-kitchen-role-redis-debian-8
 #       CreatedBy: test-kitchen
 #       TestKitchenRole: redis
 #       TestKitchenPlatform: debian-8
+# - name: centos-6
+#   transport:
+#     username: centos
+#   # Ruby 2.0 is installed in custom location. Override
+#   # these calls to ensure that serverspec can be installed
+#   # and run on the machine (otherwise it won't be found)
+#   verifier:
+#     bundler_path: /opt/rh/ruby200/root/usr/local/bin
+#     rspec_path: /opt/rh/ruby200/root/usr/local/bin
+#   driver:
+#     tags:
+#       Name: ansible-test-kitchen-role-redis-centos-6
+#       CreatedBy: test-kitchen
+#       TestKitchenRole: redis
+#       TestKitchenPlatform: centos-6
+# - name: ubuntu-14.04
+#   transport:
+#     username: ubuntu
+#   driver:
+#     tags:
+#       Name: ansible-test-kitchen-role-redis-ubuntu-1404
+#       CreatedBy: test-kitchen
+#       TestKitchenRole: redis
+#       TestKitchenPlatform: ubuntu-14.04
+# - name: ubuntu-16.04
+#   transport:
+#     username: ubuntu
+#   driver:
+#     tags:
+#       Name: ansible-test-kitchen-role-redis-ubuntu-1604
+#       CreatedBy: test-kitchen
+#       TestKitchenRole: redis
+#       TestKitchenPlatform: ubuntu-16.04
 
 suites:
   - name: redis
