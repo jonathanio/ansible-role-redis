@@ -28,5 +28,5 @@ describe service(service_name) do
 end
 
 describe file(config_file) do
-  if { should exist }
+  it { should exist }
 end
