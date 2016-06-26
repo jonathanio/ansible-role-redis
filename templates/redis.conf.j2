@@ -7,7 +7,7 @@ bind {{ redis_bind | join(' ') }}
 port {{ redis_port }}
 {% if redis_socket is defined %}
 unixsocket {{ redis_socket }}
-{%  if redis_unix_mode if defined %}
+{%  if redis_unix_mode is defined %}
 unixsocketperm {{ redis_socket_mode }}
 {%  endif %}
 {% endif %}
