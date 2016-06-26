@@ -27,7 +27,7 @@ databases {{ redis_databases }}
 dir {{ redis_db_dir }}
 dbfilename {{ redis_db_filename }}
 rdbcompression {{ 'yes' if redis_db_compression else 'no' }}
-rdbchecksum yes
+; rdbchecksum yes
 
 {% for times in redis_db_save_times %}
 save {{ times | join(' ') }}
