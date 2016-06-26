@@ -1,0 +1,12 @@
+---
+# RedHat-based installation tasks file for redis
+
+- include_vars: redhat.yml
+
+- name: Install redis
+  yum:
+    name: "{{ item }}"
+    state: installed
+    enablerepo: epel
+  with_items:
+    "{{ redis_packages }}"
