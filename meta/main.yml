@@ -9,10 +9,22 @@ galaxy_info:
   platforms:
     - name: EL
       versions:
+        - 6
         - 7
+    - name: Amazon
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - xenial
+        - trusty
     - name: Debian
       versions:
         - wheezy
+        - jessie
+    - name: ArchLinux
+      versions:
+        - all
   galaxy_tags:
     - system
     - redis
