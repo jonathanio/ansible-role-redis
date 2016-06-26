@@ -31,7 +31,7 @@ describe file(config_file) do
   its(:content) { should match /^daemonize yes/ }
   its(:content) { should match /^bind 0.0.0.0/ }
   its(:content) { should match /^port 6379/ }
-  its(:content) { should match /^unixsocket \/tmp\/redis.sock/ }
+  its(:content) { should match /^unixsocket #{redis_run_dir}\/redis.sock/ }
   its(:content) { should_not match /^unixsocketperm/ }
   its(:content) { should match /^timeout 60/ }
   its(:content) { should match /^loglevel warning/ }
