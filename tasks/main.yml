@@ -7,6 +7,9 @@
 - include: redhat.yml
   when:
     ansible_os_family == "RedHat"
+- include: arch.yml
+  when:
+    ansible_os_family == "Archlinux"
 
 - include: config.yml
 - include: service.yml
