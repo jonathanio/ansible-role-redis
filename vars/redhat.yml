@@ -3,5 +3,6 @@
 redis_packages:
   - redis
 redis_service: redis
+redis_run_dir: /run/redis
 
 redis_configuration: /etc/redis.conf
