@@ -8,14 +8,17 @@ when 'debian','ubuntu'
   package_name = 'redis-server'
   service_name = 'redis-server'
   config_file = '/etc/redis/redis.conf'
+  run_dir = '/var/run/redis'
 when 'redhat','centos'
   package_name = 'redis'
   service_name = 'redis'
   config_file = '/etc/redis.conf'
+  run_dir = '/run/redis'
 else
   package_name = 'redis'
   service_name = 'redis'
   config_file = '/etc/redis.conf'
+  run_dir = '/run/redis'
 end
 
 describe package(package_name) do
@@ -31,7 +34,7 @@ describe file(config_file) do
   its(:content) { should match /^daemonize yes/ }
   its(:content) { should match /^bind 0.0.0.0/ }
   its(:content) { should match /^port 6379/ }
-  its(:content) { should match /^unixsocket #{redis_run_dir}\/redis.sock/ }
+  its(:content) { should match /^unixsocket #{run_dir}\/redis.sock/ }
   its(:content) { should_not match /^unixsocketperm/ }
   its(:content) { should match /^timeout 60/ }
   its(:content) { should match /^loglevel warning/ }
