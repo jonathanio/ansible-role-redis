@@ -1,0 +1,11 @@
+---
+
+redis_packages:
+  - redis
+redis_service: redis
+redis_run_dir: /run/redis
+
+redis_user: redis
+redis_group: redis
+
+redis_conf_file: /etc/redis.conf

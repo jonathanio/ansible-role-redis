@@ -1,0 +1,11 @@
+---
+# ArchLinux-based installation tasks file for redis
+
+- include_vars: arch.yml
+
+- name: Install redis
+  pacman:
+    name: "{{ item }}"
+    state: installed
+  with_items:
+    "{{ redis_packages }}"

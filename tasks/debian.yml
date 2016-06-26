@@ -1,0 +1,11 @@
+---
+# Debian-based installation tasks file for redis
+
+- include_vars: debian.yml
+
+- name: Install redis
+  apt:
+    name: "{{ item }}"
+    state: installed
+  with_items:
+    "{{ redis_packages }}"

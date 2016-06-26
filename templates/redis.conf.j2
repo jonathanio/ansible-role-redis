@@ -1,0 +1,46 @@
+# {{ ansible_managed }}
+
+daemonize {{ 'yes' if redis_daemonize else 'no' }}
+pidfile {{ redis_run_dir }}/{{ redis_service }}.pid
+
+bind {{ redis_bind | join(' ') }}
+port {{ redis_port }}
+{% if redis_socket is defined %}
+unixsocket {{ redis_socket }}
+{%  if redis_unix_mode is defined %}
+unixsocketperm {{ redis_socket_mode }}
+{%  endif %}
+{% endif %}
+
+timeout {{ redis_timeout }}
+
+loglevel {{ redis_log_level }}
+logfile {{ redis_log_file }}
+
+syslog-enabled {{ 'yes' if redis_syslog else 'no' }}
+{% if redis_syslog %}
+syslog-ident {{ redis_syslog_ident }}
+syslog-facility {{ redis_syslog_facility }}
+{% endif %}
+
+databases {{ redis_databases }}
+dir {{ redis_db_dir }}
+dbfilename {{ redis_db_filename }}
+rdbcompression {{ 'yes' if redis_db_compression else 'no' }}
+
+{% for times in redis_db_save_times %}
+save {{ times | join(' ') }}
+{% endfor %}
+
+maxclients {{ redis_max_clients }}
+
+maxmemory {{ redis_max_memory }}
+maxmemory-policy {{ redis_max_memory_policy }}
+maxmemory-samples {{ redis_max_memory_samples }}
+
+appendonly {{ 'yes' if redis_append_only else 'no' }}
+{% if redis_append_only %}
+appendfilename {{ redis_append_filename }}
+appendfsync {{ redis_appendfsync }}
+no-appendfsync-on-rewrite no
+{% endif %}
