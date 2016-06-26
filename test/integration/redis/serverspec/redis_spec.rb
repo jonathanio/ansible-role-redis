@@ -43,7 +43,6 @@ describe file(config_file) do
   its(:content) { should match /^dir \/var\/lib\/redis/ }
   its(:content) { should match /^dbfilename dump.rdb/ }
   its(:content) { should match /^rdbcompression yes/ }
-  its(:content) { should match /^rdbchecksum yes/ }
   its(:content) { should match /^save 900 1/ }
   its(:content) { should match /^save 300 10/ }
   its(:content) { should match /^save 60 10000/ }
