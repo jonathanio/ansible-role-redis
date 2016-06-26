@@ -1,2 +1,12 @@
 ---
 # configuration tasks file for redis
+
+- name: Configure redis settings
+  template:
+    src: redis.conf.j2
+    dest: "{{ redis_conf_file }}"
+    owner: root
+    group: "{{ redis_group }}"
+    mode: 0640
+  notify:
+    reload redis
