@@ -90,6 +90,7 @@ suites:
 provisioner:
   name: ansible_playbook
   hosts: all
+  require_ansible_omnibus: true
   require_ruby_for_busser: true
   require_chef_for_busser: false
 
