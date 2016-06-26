@@ -8,7 +8,7 @@
     redis_bind:
       - 0.0.0.0
     redis_socket: /tmp/redis.sock
-    redis_log_level: info
+    redis_log_level: warning
     redis_syslog: yes
     redis_databases: 32
     redis_max_clients: 16

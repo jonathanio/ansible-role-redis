@@ -34,7 +34,7 @@ describe file(config_file) do
   its(:content) { should match /^unixsocket \/tmp\/redis.sock/ }
   its(:content) { should_not match /^unixsocketperm/ }
   its(:content) { should match /^timeout 60/ }
-  its(:content) { should match /^loglevel info/ }
+  its(:content) { should match /^loglevel warning/ }
   its(:content) { should match /^logfile \/var\/log\/redis\/#{service_name}.log/ }
   its(:content) { should match /^syslog-enabled yes/ }
   its(:content) { should match /^syslog-ident redis/ }
