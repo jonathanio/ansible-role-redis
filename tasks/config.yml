@@ -9,4 +9,4 @@
     group: "{{ redis_group }}"
     mode: 0640
   notify:
-    reload redis
+    restart redis
