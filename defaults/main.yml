@@ -1,34 +1,42 @@
 ---
 # defaults file for redis
 
-redis_bind: 127.0.0.1
+redis_daemonize: yes
+
+redis_bind:
+  - 127.0.0.1
 redis_port: 6379
-# redis_socket:
-# redis_socket_mode:
-redis_timeout:
-redis_auth: None
+# redis_socket: "{{ redis_run_dir }}/{{ redis_service }}.sock"
+# redis_socket_mode: 0755
+redis_timeout: 60
+# redis_auth: None
 
-# Setup redis role
-redis_role: master
-#If role is slave set these values too
-redis_master_ip: 1.1.1.1
-redis_master_port: 6379
-redis_master_auth: None
+# redis_role: master
+# redis_master_ip: 1.1.1.1
+# redis_master_port: 6379
+# redis_master_auth: None
 
-redis_log_level:
-redis_log_file:
+redis_log_level: notice
+redis_log_file: "/var/log/redis/{{ redis_service }}.log"
 
-redis_databases: 4
+redis_syslog: no
+redis_syslog_ident: redis
+redis_syslog_facility: local0
+
+redis_databases: 16
 redis_db_dir: /var/lib/redis
 redis_db_filename: dump.rdb
+redis_db_compression: yes
 redis_db_save_times:
   - [900, 1]
   - [300, 10]
   - [60, 10000]
 
 redis_max_clients: 128
-redis_max_memory: 512mb
+
+redis_max_memory: 128mb
 redis_max_memory_policy: volatile-lru
+redis_max_memory_samples: 3
 
 redis_append_only: no
 redis_append_filename: appendonly.aof
