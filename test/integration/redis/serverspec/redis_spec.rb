@@ -25,7 +25,7 @@ end
 describe file(config_file) do
   it { should exist }
   it { should be_file }
-  it { should be_mode '0640' }
+  it { should be_mode 640 }
   it { should be_owned_by 'root' }
   it { should be_grouped_into 'redis' }
   its(:content) { should match /^daemonize yes/ }
