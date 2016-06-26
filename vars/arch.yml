@@ -1,5 +1,8 @@
 ---
 
+# Override for systemd
+redis_daemonize: no
+
 redis_packages:
   - redis
 redis_service: redis
