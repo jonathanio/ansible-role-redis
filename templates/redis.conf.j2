@@ -39,7 +39,7 @@ maxmemory {{ redis_max_memory }}
 maxmemory-policy {{ redis_max_memory_policy }}
 maxmemory-samples {{ redis_max_memory_samples }}
 
-appendonly {{ redis_append_only }}
+appendonly {{ 'yes' if redis_append_only else 'no' }}
 {% if redis_append_only %}
 appendfilename {{ redis_append_filename }}
 appendfsync {{ redis_appendfsync }}
