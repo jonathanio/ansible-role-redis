@@ -36,7 +36,9 @@ describe file(config_file) do
   its(:content) { should match /^port 6379/ }
   its(:content) { should match /^unixsocket #{run_dir}\/redis.sock/ }
   its(:content) { should_not match /^unixsocketperm/ }
-  its(:content) { should match /^timeout 60/ }
+  its(:content) { should match /^timeout 0/ }
+  its(:content) { should match /^tcp-backlog 511/ }
+  its(:content) { should match /^tcp-keepalive 60/ }
   its(:content) { should match /^loglevel warning/ }
   its(:content) { should match /^logfile \/var\/log\/redis\/#{service_name}.log/ }
   its(:content) { should match /^syslog-enabled yes/ }
