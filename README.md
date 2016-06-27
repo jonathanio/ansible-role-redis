@@ -22,6 +22,8 @@ redis_daemonize: yes                  # Daemonize the service? Note: On systems
 redis_bind:                           # List of the IP addresses to pass onto
   - 127.0.0.1                         # bind (leave as empty array for all)
 redis_port: 6379                      # Port to bind to
+redis_tcp_backlog: 511                # TCP backlog settings for connection
+                                      # performance (may require sysctl updates)
 redis_timeout: 60                     # Timeout
 
 redis_log_level: notice               # Notice level for logs

@@ -5,6 +5,7 @@ pidfile {{ redis_run_dir }}/{{ redis_service }}.pid
 
 bind {{ redis_bind | join(' ') }}
 port {{ redis_port }}
+tcp-backlog {{ redis_tcp_backlog }}
 {% if redis_socket is defined %}
 unixsocket {{ redis_socket }}
 {%  if redis_unix_mode is defined %}
