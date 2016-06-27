@@ -14,6 +14,7 @@ unixsocketperm {{ redis_socket_mode }}
 {% endif %}
 
 timeout {{ redis_timeout }}
+tcp-keepalive {{ redis_tcp_keepalive }}
 
 loglevel {{ redis_log_level }}
 logfile {{ redis_log_file }}
