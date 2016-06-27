@@ -24,7 +24,8 @@ redis_bind:                           # List of the IP addresses to pass onto
 redis_port: 6379                      # Port to bind to
 redis_tcp_backlog: 511                # TCP backlog settings for connection
                                       # performance (may require sysctl updates)
-redis_timeout: 60                     # Timeout
+redis_timeout: 0                      # How long to wait before closing the
+                                      # connection with the client
 
 redis_log_level: notice               # Notice level for logs
 redis_log_file: "/var/log/redis/redis.log"  # Path to logs
