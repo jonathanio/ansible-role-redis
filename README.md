@@ -22,12 +22,15 @@ redis_daemonize: yes                  # Daemonize the service? Note: On systems
 redis_bind:                           # List of the IP addresses to pass onto
   - 127.0.0.1                         # bind (leave as empty array for all)
 redis_port: 6379                      # Port to bind to
-redis_tcp_backlog: 511                # TCP backlog settings for connection
-                                      # performance (may require sysctl updates)
-redis_timeout: 0                      # How long to wait before closing the
-                                      # connection with the client
+redis_tcp_backlog: 511                # [Optional] TCP backlog settings for
+                                      # connection performance (see NOTES)
+redis_timeout: 0                      # [Optional] Timeout for idle client
+                                      # connection (see NOTES)
 redis_tcp_keepalive: 60               # Enable SO_KEEPALIVE and set how long the
                                       # interval at which to send ACKs
+redis_socket: /run/redis/redis.sock   # [Optional] Path to create Unix Socket
+redis_socket_mode: 0755               # [Optional] Permission to give to Socket
+
 redis_log_level: notice               # Notice level for logs
 redis_log_file: "/var/log/redis/redis.log"  # Path to logs
 
@@ -54,6 +57,12 @@ redis_append_only: no                 # Enable append-only mode for data store
 redis_append_filename: appendonly.aof # Filename for append-only store
 redis_append_fsync: everysec          # When to fsync the data in the store
 ```
+
+### NOTES
+
+Both `redis_tcp_backlog` (i.e. `tcp-backlog`) and `redis_tcp_keepalive` (i.e.
+`tcp-keepalive`) options are relativly recent and may not be supported by all
+distributions and versions.
 
 ## Dependencies
 
