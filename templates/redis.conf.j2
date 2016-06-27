@@ -5,15 +5,21 @@ pidfile {{ redis_run_dir }}/{{ redis_service }}.pid
 
 bind {{ redis_bind | join(' ') }}
 port {{ redis_port }}
+{% if redis_tcp_backlog is defined %}
+tcp-backlog {{ redis_tcp_backlog }}
+{% endif %}
+{% if redis_tcp_keepalive is defined %}
+tcp-keepalive {{ redis_tcp_keepalive }}
+{% endif %}
+timeout {{ redis_timeout }}
+
 {% if redis_socket is defined %}
 unixsocket {{ redis_socket }}
 {%  if redis_unix_mode is defined %}
 unixsocketperm {{ redis_socket_mode }}
 {%  endif %}
+
 {% endif %}
-
-timeout {{ redis_timeout }}
-
 loglevel {{ redis_log_level }}
 logfile {{ redis_log_file }}
 
