@@ -58,6 +58,14 @@ redis_append_filename: appendonly.aof # Filename for append-only store
 redis_append_fsync: everysec          # When to fsync the data in the store
 ```
 
+Also:
+
+```yaml
+use_firewalld: no                     # If you use firewalld, enable this and
+                                      # the appropriate Firewall ports will be
+                                      # added and enabled in firewalld
+```
+
 ### NOTES
 
 Both `redis_tcp_backlog` (i.e. `tcp-backlog`) and `redis_tcp_keepalive` (i.e.

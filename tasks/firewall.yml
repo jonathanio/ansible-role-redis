@@ -1,0 +1,11 @@
+---
+# firewall-specific tasks for redis
+
+- name: Open firewalld ports for Redis
+  firewalld:
+    port: "{{ redis_port }}/tcp"
+    permanent: true
+    state: enabled
+    immediate: yes
+  when:
+    (use_firewalld is defined and use_firewalld)
