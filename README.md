@@ -66,6 +66,15 @@ use_firewalld: no                     # If you use firewalld, enable this and
                                       # added and enabled in firewalld
 ```
 
+## Generic Variables
+
+These are generic variables which are common to many of the roles I produce:
+
+| Variable | Purpose | Default |
+| -------- | ------- | ------- |
+| `use_firewalld` | If set to `yes`, iptables rules will be opened up using `firewalld` | `Undefined` |
+| `use_ufw` | If set to `yes`, iptables rules will be opened up using `ufw` | `Undefined` |
+
 ### NOTES
 
 Both `redis_tcp_backlog` (i.e. `tcp-backlog`) and `redis_tcp_keepalive` (i.e.
