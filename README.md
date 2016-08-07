@@ -58,13 +58,14 @@ redis_append_filename: appendonly.aof # Filename for append-only store
 redis_append_fsync: everysec          # When to fsync the data in the store
 ```
 
-Also:
+## Generic Variables
 
-```yaml
-use_firewalld: no                     # If you use firewalld, enable this and
-                                      # the appropriate Firewall ports will be
-                                      # added and enabled in firewalld
-```
+These are generic variables which are common to many of the roles I produce:
+
+| Variable | Purpose | Default |
+| -------- | ------- | ------- |
+| `use_firewalld` | If set to `yes`, iptables rules will be opened up using `firewalld` | `Undefined` |
+| `use_ufw` | If set to `yes`, iptables rules will be opened up using `ufw` | `Undefined` |
 
 ### NOTES
 

@@ -9,3 +9,12 @@
     immediate: yes
   when:
     (use_firewalld is defined and use_firewalld)
+
+- name: Open ufw ports for ElasticSearch
+  ufw:
+    port: "{{ redis_port }}"
+    proto: tcp
+    direction: in
+    policy: allow
+  when:
+    (use_ufw is defined and use_ufw)
