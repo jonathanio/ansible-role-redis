@@ -58,14 +58,6 @@ redis_append_filename: appendonly.aof # Filename for append-only store
 redis_append_fsync: everysec          # When to fsync the data in the store
 ```
 
-Also:
-
-```yaml
-use_firewalld: no                     # If you use firewalld, enable this and
-                                      # the appropriate Firewall ports will be
-                                      # added and enabled in firewalld
-```
-
 ## Generic Variables
 
 These are generic variables which are common to many of the roles I produce:
