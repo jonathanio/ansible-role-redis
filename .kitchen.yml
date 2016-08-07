@@ -65,6 +65,8 @@ platforms:
 
 suites:
   - name: redis
+    excludes:
+      - centos-6
     verifier:
       patterns:
         - "roles/*/test/integration/redis/serverspec/*_spec.rb"
