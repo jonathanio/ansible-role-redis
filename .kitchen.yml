@@ -66,10 +66,7 @@ platforms:
 suites:
   - name: redis
     excludes:
-      - debian-8
       - centos-6
-      - ubuntu-14.04
-      - ubuntu-16.04
     verifier:
       patterns:
         - "roles/*/test/integration/redis/serverspec/*_spec.rb"

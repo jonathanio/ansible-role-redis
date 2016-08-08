@@ -10,9 +10,18 @@ galaxy_info:
     - name: EL
       versions:
         - 7
+    - name: Ubuntu
+      versions:
+        - xenial
+        - trusty
     - name: Debian
       versions:
         - wheezy
+        - jessie
+        - sid
+    - name: ArchLinux
+      versions:
+        - all
   galaxy_tags:
     - system
     - redis
